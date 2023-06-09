@@ -1,0 +1,108 @@
+{% extends 'index.html' %}
+{% load static %}
+
+
+
+{% block content %}
+
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'css/sty.css' %}">
+
+{%endblock%}
+
+{% block js %}
+
+<link rel="stylesheet" href="{% static 'js/admin.js'  %}">
+
+{%endblock%}
+
+
+
+<header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-white custom-nav">
+        <i class="fa fa-bars mobile-menu"></i>
+        <a class="navbar-brand" href="#">Logo</a>
+
+        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+
+
+            <li class="nav-item">
+                <a class="nav-link user-prfile" href="#">
+
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+
+<div class="container-fluid">
+    <div class="row">
+        <aside class="col-md-2" id="sidebar">
+            <ul class="sidebar-menu">
+                <li>
+                    <a href="" class="active"> <i class="fa fa-dashboard"></i> <a href=""></a> Dashboard</a>
+                </li>
+                <li>
+                    <a href=""> <i class="fa fa-shopping-bag" aria-hidden="true"></i> <a href=""></a> Orders</a>
+                </li>
+                <li>
+                    <a href=""> <i class="fa fa-history" aria-hidden="true"></i> <a href=""></a> Ongoning Orders</a>
+                </li>
+                <li>
+                    <a href=""> <i class="fa fa-list" aria-hidden="true"></i> <a href="{% url 'show' %}"> Table </a>
+                    </a>
+                </li>
+                <li>
+                    <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a> Bar Chart</a>
+                </li>
+
+            </ul>
+        </aside>
+
+        <main class="col-md-10" id="main">
+            <section class="spacethis">
+                <h3 class="title">Edit page</h3>
+         
+            </section>
+
+            <section class="spacethis">
+                <div class="row">
+                    <div class="col-md-6">
+
+                        <form action="{% url 'update' details.id %}" method="post">{% csrf_token %}
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Email address</label>
+                                <input type="email" name="email" class="form-control" id="exampleInputEmail1"
+                                    aria-describedby="emailHelp" required name="email" value="{{details.email}}">
+                                <small id="emailHelp" class="form-text text-muted">We'll never share your email with
+                                    anyone
+                                    else.</small>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Password</label>
+                                <input type="password" name="password" class="form-control" id="exampleInputPassword1" required name="password" value="{{details.password}}">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleFormControlFile1">Example file input</label>
+                                <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+                            </div>
+
+                            <button type="submit" class="btn btn-primary">Submit</button>
+
+                        </form>
+                    </div>
+
+
+                </div>
+            </section>
+
+
+        </main>
+    </div>
+</div>
+
+
+
+
+{% endblock content %}

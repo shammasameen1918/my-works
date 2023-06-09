@@ -1,0 +1,178 @@
+{% extends 'index.html' %}
+
+{% load static %}
+{% block content %}
+
+{% block css %}
+
+<link rel="stylesheet" href="{% static 'css/sty.css' %}">
+
+{% endblock %}
+
+{% block js %}
+
+<link rel="stylesheet" href="{% static 'js/admin.js'  %}">
+
+{% endblock %}
+
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-white custom-nav">
+    <i class="fa fa-bars mobile-menu"></i>
+    <a class="navbar-brand" href="#">Logo</a>
+    
+    <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+     
+
+      <li class="nav-item">
+        <a class="nav-link user-prfile" href="#">
+          
+        </a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<div class="container-fluid">
+  <div class="row">
+    <aside class="col-md-2" id="sidebar">
+      <ul class="sidebar-menu">
+        <li>
+          <a href=""> <i class="fa fa-list" aria-hidden="true"></i> <a href="{% url 'dashboard' %}"> <i class="bi bi-tv-fill"></i>Dashboard</a> </a>
+        </li>
+         
+
+
+        <li>
+          <a href=""> <i class="fa fa-shopping-bag" aria-hidden="true"></i> <a href=""></a> <i class="bi bi-stickies-fill"> </i>Orders</a>
+        </li>
+        
+       
+
+        <li>
+          <a href=""> <i class="fa fa-list" aria-hidden="true"></i> <a href="{% url 'tabl' %}"> <i class="bi bi-card-list"></i>Form </a> </a>
+        </li>
+
+
+        <li>
+          <a href=""> <i class="fa fa-list" aria-hidden="true" ></i> <a href="{% url 'show' %}"> <i class="bi bi-file-earmark-spreadsheet-fill"></i>Table   </a> </a>
+        </li>
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href="{% url 'chart' %}"></a> <i class="bi bi-bar-chart-line-fill"></i> Chart</a>
+        </li>
+
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a><i class="bi bi-window-stack"></i> Apps</a>
+        </li>
+
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a><i class="bi bi-tv"></i> UI Elements</a>
+        </li>
+
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a><i class="bi bi-file-earmark-break-fill"></i> Pages</a>
+        </li>
+
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a><i class="bi bi-clipboard2-data-fill"></i> Charts</a>
+        </li>
+
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a><i class="bi bi-slash-square-fill"></i> Helper</a>
+        </li>
+
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a><i class="bi bi-people-fill"></i> Profiles</a>
+        </li>
+
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a><i class="bi bi-grid-1x2-fill"></i> Layout</a>
+        </li>
+
+        <li>
+          <a href=""> <i class="fa fa-bar-chart" aria-hidden="true"></i> <a href=""></a><i class="bi bi-gear-fill"></i> Settings</a>
+        </li>
+
+        
+
+      </ul>
+    </aside>
+
+    <main class="col-md-10" id="main">
+      <!-- <section class="spacethis">
+        <h3 class="title">Overview</h3> -->
+        <!-- <div class="row mobile-scrollable">
+          <div class="col-md-3">
+            <div class="dash-card">
+              <i class="fa fa-car"></i>
+              <p>Available Drivers</p>
+              <h1 class="text-success">500</h1>
+              <button type="button" class="btn btn-theme">Know More</button>
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="dash-card">
+              <i class="fa fa-shopping-bag" aria-hidden="true"></i>
+              <p>Pending Orders</p>
+              <h1 class="text-danger">500</h1>
+              <button type="button" class="btn btn-theme">Know More</button>
+
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="dash-card">
+              <i class="fa fa-history" aria-hidden="true"></i>
+              <p>Ongoing Orders</p>
+              <h1 class="text-warning">500</h1>
+              <button type="button" class="btn btn-theme">Know More</button>
+            </div>
+          </div>
+          <div class="col-md-3">
+            <div class="dash-card">
+              <i class="fa fa-check" aria-hidden="true"></i>
+              <p>Delivered Orders</p>
+              <h1 class="text-success">500</h1>
+              <button type="button" class="btn btn-theme">Know More</button>
+
+            </div>
+          </div>
+        </div> -->
+      </section>
+
+      <!-- <section class="spacethis">
+        <div class="row">
+          <div class="col-md-6">
+
+<form method="post">{% csrf_token %}
+  <div class="form-group">
+    <label for="exampleInputEmail1">Email address</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
+      else.</small>
+  </div>
+  <div class="form-group">
+    <label for="exampleInputPassword1">Password</label>
+    <input type="password" name="password" class="form-control" id="exampleInputPassword1">
+  </div>
+  <div class="form-group">
+    <label for="exampleFormControlFile1">Example file input</label>
+    <input type="file" name="image" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+
+</form>
+          </div>
+
+          
+        </div>
+      </section> -->
+
+  {% endblock content %}
+    </main>
+  </div>
+</div>
+
+
+
+
